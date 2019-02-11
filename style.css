@@ -2,11 +2,8 @@ svg {
     border: 3px solid black;
 }
 
-section {
+rect {
     display: inline-block;
-    vertical-align: bottom;
-    width: 20px;
-    height: 50px;
     fill: url(#gradient);
     stroke: black;
     stroke-width: 1;

@@ -63,12 +63,21 @@ svg.append("g")
             (height-margins.bottom)+")")
             .call(xaxis);
 
-// var bars = d3.select("svg")
-//             .selectAll("section")
-//             .data(startingBarData)
-svg.append("section")
-            // .attr("height", startingBarData[0].strength);
-            .style("height", startingBarData[0].strength +"px");
+function buildBarz(list) {
+    for (var i=0; i<list.length; i++) {
+        svg.append("rect")
+            .attr("height", list[i].strength +"px")
+            .attr("width", barWidth +"px")
+            .attr("x", margins.left+(barWidth/2))
+            .attr("y", height-margins.bottom-list[i].strength +"px");
+    }
+}
+
+svg.append("rect")
+            .attr("height", startingBarData[0].strength +"px")
+            .attr("width", barWidth+"px")
+            .attr("x", xscale(1)/2+margins.left+"px")
+            .attr("y", height-margins.bottom-startingBarData[0].strength+"px");
 
     // To wait 5 seconds before the transition starts, use setTimeout
 // (function(){...}, 5000)
